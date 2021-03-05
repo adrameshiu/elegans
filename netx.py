@@ -54,4 +54,4 @@ def save_graphml(net, fnm):
 
 def print_graphml(net):
     strg = '\n'.join(nx.generate_graphml(net))
-    print strg
+    print(strg)

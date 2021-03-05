@@ -6,7 +6,7 @@ import os
 from py2neo import ServiceRoot
 
 from neo4jrestclient.client import GraphDatabase
-from urlparse import urlparse, urlunparse
+from urllib.parse import urlparse, urlunparse
 
 import preproc
 

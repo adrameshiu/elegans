@@ -143,7 +143,7 @@ def wa_links_df():
 
     nans = dfr.index[dfr['link'].isnull()]
     if len(nans) > 0:
-        print [dfr.loc[x] for x in nans]
+        print([dfr.loc[x] for x in nans])
 
     return dfr
 
@@ -188,8 +188,8 @@ def neurons_df():
 
     nodes_only = np.setdiff1d(nodes.index.values, pos.index.values)
     pos_only = np.setdiff1d(pos.index.values, nodes.index.values)
-    print "Nodes but not pos: ", nodes_only
-    print "Pos but not nodes: ", pos_only
+    print("Nodes but not pos: ", nodes_only)
+    print("Pos but not nodes: ", pos_only)
 
     # Perform a left join with nodes on the left and positions on the right, 
     # so we only use those neurons provided by Chen
@@ -198,7 +198,7 @@ def neurons_df():
     # Now add missing positions from symmetric partners
     for node in nodes_only:
         mirror = sym_node_name(node)
-        print "Copying position for ", node, " from ", mirror
+        print("Copying position for ", node, " from ", mirror)
         dfr.loc[node, 'kx'] = dfr.loc[mirror, 'kx']
         dfr.loc[node, 'ky'] = dfr.loc[mirror, 'ky']
 
@@ -210,7 +210,7 @@ def neurons_df():
     wa_links = wa_links_df()
     dfr = dfr.join(wa_links, how="left")
 
-    print dfr.info()
+    print(dfr.info())
     return dfr
 
 
