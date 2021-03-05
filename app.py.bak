@@ -70,7 +70,7 @@ def subgraph():
 @APP.route('/_group_names')
 def group_names():
     groups = neo.group_names()
-    print groups
+    print(groups)
     return jsonify(result=groups)
 
 
@@ -78,7 +78,7 @@ def group_names():
 def neuron_names():
     groups = request.args.getlist('groups[]')
     neurons = neo.neuron_names(groups)
-    print neurons
+    print(neurons)
     return jsonify(result=neurons)
 
 
@@ -138,7 +138,7 @@ def reset():
 
 @APP.route('/export', methods=["GET"])
 def export():
-    print request.args
+    print(request.args)
     exp_format = request.args.get('format', "json", type=str)
     nxg = netx.to_netx(NODE_CACHE, REL_CACHE)
 
@@ -160,7 +160,7 @@ def export():
 
 @APP.route('/downloadSvg', methods=["GET"])
 def downloadSvg():
-    print request.args
+    print(request.args)
     svg_source = request.args.get('svg-source', "", type=str)
     #resp = Response(svg_source, mimetype="svg")
     resp = make_response(svg_source)
